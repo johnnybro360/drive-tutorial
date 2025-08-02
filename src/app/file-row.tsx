@@ -16,7 +16,7 @@ export function FileRow(props: { file: typeof files.$inferSelect }) {
                     </Link>
                 </div>
                 <div className="col-span-3 text-gray-400">{"File"}</div>
-                <div className="col-span-3 text-gray-400">{file.size}</div>
+                <div className="col-span-3 text-gray-400">{file.size}MB</div>
             </div>
         </li>
     )
@@ -38,7 +38,7 @@ export function FolderRow(props: { folder: (typeof folders.$inferSelect)}) {
                             {folder.name}
                         </Link>
                 </div>
-                <div className="col-span-3 text-gray-400"></div>
+                <div className="col-span-3 text-gray-400">{"Folder"}</div>
                 <div className="col-span-3 text-gray-400"></div>
             </div>
         </li>

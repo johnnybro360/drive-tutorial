@@ -1,6 +1,3 @@
-"use client"
-
-import { useMemo, useState } from "react"
 import { Upload, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import { Button } from "~/components/ui/button"
@@ -9,26 +6,10 @@ import type { files, folders } from "~/server/db/schema"
 
 export default function DriveContents(props: {
   files: (typeof files.$inferSelect)[],
-  folders: (typeof folders.$inferSelect)[]
+  folders: (typeof folders.$inferSelect)[],
+  parents: (typeof folders.$inferSelect)[]
 }) {
 
-
-  // const breadcrumbs = useMemo(() => {
-    const breadcrumbs: unknown[] = []
-  //   let currentId = currentFolder
-
-  //   while (currentId !== 1) {
-  //     const folder = props.folders.find((folder) => folder.id === currentId)
-  //     if (folder) {
-  //       breadcrumbs.unshift(folder)
-  //       currentId = folder.parent ?? 1
-  //     } else {
-  //       break
-  //     }
-  //   }
-
-  //   return breadcrumbs
-  // }, [currentFolder, props.folders])
 
   const handleUpload = () => {
     alert("Upload functionality would be implemented here")
@@ -45,7 +26,7 @@ export default function DriveContents(props: {
             >
               My Drive
             </Link>
-            {breadcrumbs.map((folder, index) => (
+            {props.parents.map((folder, index) => (
               <div key={folder.id} className="flex items-center">
                 <ChevronRight className="mx-2 text-gray-500" size={16} />
                 <Link href={`/f/${folder.id}`} className="text-gray-300 hover:text-white">
@@ -54,10 +35,10 @@ export default function DriveContents(props: {
               </div>
             ))}
           </div>
-          <Button onClick={handleUpload} className="bg-blue-600 text-white hover:bg-blue-700">
+          <Link href="/upload" className="bg-blue-600 text-white hover:bg-blue-700">
             <Upload className="mr-2" size={20} />
             Upload
-          </Button>
+          </Link>
         </div>
         <div className="bg-gray-800 rounded-lg shadow-xl">
           <div className="px-6 py-4 border-b border-gray-700">
