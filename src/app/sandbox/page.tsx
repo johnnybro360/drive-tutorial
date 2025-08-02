@@ -1,6 +1,6 @@
 import { db } from "~/server/db"
 import { mockFiles, MockFolders } from "~/lib/mock-data"
-import { files, folders } from "~/server/db/schema"
+import { files_table, folders_table } from "~/server/db/schema"
 
 export default function SandBoxPage(){
 
@@ -12,7 +12,7 @@ export default function SandBoxPage(){
 
 
 
-                const folderInsert = await db.insert(folders).values(MockFolders.map((folder, index)=>({
+                const folderInsert = await db.insert(folders_table).values(MockFolders.map((folder, index)=>({
                     name: folder.name,
                     parent: folder.parent === "root" ? null : parseInt(folder.parent ?? "1"),
                     id: index + 1,
@@ -20,7 +20,7 @@ export default function SandBoxPage(){
 
                 console.log(folderInsert);
 
-                const fileInsert = await db.insert(files).values(mockFiles.map((file, index)=>({
+                const fileInsert = await db.insert(files_table).values(mockFiles.map((file, index)=>({
                     name: file.name,
                     parent: file.parent === "root" ? 0 : parseInt(file.parent),
                     id: index + 1,
