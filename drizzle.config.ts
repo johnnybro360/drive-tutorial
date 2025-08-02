@@ -8,5 +8,5 @@ export default {
   dbCredentials: {
     url: env.SINGLESTORE_URL,
   },
-  tablesFilter: ["drive-tutorial_*"],
+  // tablesFilter: ["drive-tutorial_*"],
 } satisfies Config;

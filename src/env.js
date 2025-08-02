@@ -13,11 +13,11 @@ export const env = createEnv({
     .default("development"),
     
     SINGLESTORE_URL: z.string().url(),
-    SINGLESTORE_HOST: z.string(),
-    SINGLESTORE_PORT: z.string(),
-    SINGLESTORE_USER: z.string(),
-    SINGLESTORE_PASSWORD: z.string(),
-    SINGLESTORE_DB_NAME: z.string(),
+    // SINGLESTORE_HOST: z.string(),
+    // SINGLESTORE_PORT: z.string(),
+    // SINGLESTORE_USER: z.string(),
+    // SINGLESTORE_PASSWORD: z.string(),
+    // SINGLESTORE_DB_NAME: z.string(),
 
   },
 
@@ -37,11 +37,11 @@ export const env = createEnv({
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
     SINGLESTORE_URL: process.env.SINGLESTORE_URL,
-    SINGLESTORE_USER: process.env.SINGLESTORE_USER,
-    SINGLESTORE_PASSWORD: process.env.SINGLESTORE_PASSWORD,
-    SINGLESTORE_HOST: process.env.SINGLESTORE_HOST,
-    SINGLESTORE_PORT: process.env.SINGLESTORE_PORT,
-    SINGLESTORE_DB_NAME: process.env.SINGLESTORE_DB_NAME,
+    // SINGLESTORE_USER: process.env.SINGLESTORE_USER,
+    // SINGLESTORE_PASSWORD: process.env.SINGLESTORE_PASSWORD,
+    // SINGLESTORE_HOST: process.env.SINGLESTORE_HOST,
+    // SINGLESTORE_PORT: process.env.SINGLESTORE_PORT,
+    // SINGLESTORE_DB_NAME: process.env.SINGLESTORE_DB_NAME,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**

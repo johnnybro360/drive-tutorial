@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "singlestore",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "1",
+      "when": 1754109936326,
+      "tag": "0000_mushy_champions",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "1",
+      "when": 1754110104339,
+      "tag": "0001_modern_hemingway",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "1",
+      "when": 1754110357859,
+      "tag": "0002_medical_sage",
+      "breakpoints": true
+    }
+  ]
+}
