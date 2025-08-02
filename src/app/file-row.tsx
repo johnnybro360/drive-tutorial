@@ -1,8 +1,9 @@
 import type { File, Folder } from "~/lib/mock-data"
 import { Folder as FolderIcon, FileIcon } from "lucide-react"
 import Link from "next/link"
+import { files, folders } from "~/server/db/schema"
 
-export function FileRow(props: { file: File }) {
+export function FileRow(props: { file: typeof files.$inferSelect }) {
     const { file } = props
 
     return (
@@ -22,7 +23,7 @@ export function FileRow(props: { file: File }) {
     )
 }
 
-export function FolderRow(props: { folder: Folder, handleFolderClick: () => void }) {
+export function FolderRow(props: { folder: (typeof folders.$inferSelect), handleFolderClick: () => void }) {
     const { folder, handleFolderClick } = props
 
     return (
@@ -30,7 +31,6 @@ export function FolderRow(props: { folder: Folder, handleFolderClick: () => void
         <li key={folder.id} className="px-6 py-4 border-b border-gray-700 hover:bg-gray-750">
             <div className="grid grid-cols-12 gap-4 items-center">
                 <div className="col-span-6 flex items-center">
-                    {folder.type === "folder" && (
                         <button
                             onClick={() => handleFolderClick()}
                             className="flex items-center text-gray-100 hover:text-blue-400"
@@ -38,7 +38,6 @@ export function FolderRow(props: { folder: Folder, handleFolderClick: () => void
                             <FolderIcon className="mr-3" size={20} />
                             {folder.name}
                         </button>
-                    ) }
                 </div>
                 <div className="col-span-3 text-gray-400"></div>
                 <div className="col-span-3 text-gray-400"></div>
