@@ -3,6 +3,7 @@ import Link from "next/link"
 import { Button } from "~/components/ui/button"
 import { FileRow, FolderRow } from "./file-row"
 import type { files_table, folders_table } from "~/server/db/schema"
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs"
 
 export default function DriveContents(props: {
   files: (typeof files_table.$inferSelect)[],
@@ -35,10 +36,18 @@ export default function DriveContents(props: {
               </div>
             ))}
           </div>
-          <Link href="/upload" className="bg-blue-600 text-white hover:bg-blue-700">
+          {/* <Link href="/upload" className="bg-blue-600 text-white hover:bg-blue-700">
             <Upload className="mr-2" size={20} />
             Upload
-          </Link>
+          </Link> */}
+          <div>
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </div>
         </div>
         <div className="bg-gray-800 rounded-lg shadow-xl">
           <div className="px-6 py-4 border-b border-gray-700">
