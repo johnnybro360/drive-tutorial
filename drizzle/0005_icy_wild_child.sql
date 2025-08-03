@@ -1,0 +1,1 @@
+ALTER TABLE `drive_tutorial_files` ADD `file_key` text NOT NULL;
