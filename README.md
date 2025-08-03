@@ -5,7 +5,7 @@
 - [x] Set up database and data model
 - [x] Move folder open state to URL
 - [x] Add auth
-- [ ] Set file uploading
+- [x] Add file uploading
 - [] Add anlaytics
 
 # 2-8-2025
