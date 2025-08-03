@@ -22,7 +22,7 @@ export async function deleteFile(fileId: number) {
         return { error: "File not found" }
     }
  
-    const utiapiResult = await utApi.deleteFiles([file.url.replace("https://utfs.io/f/", "")])
+    const utiapiResult = await utApi.deleteFiles([file.fileKey])
 
     console.log(utiapiResult);
     
