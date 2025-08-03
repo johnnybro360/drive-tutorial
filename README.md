@@ -3,13 +3,14 @@
 ## TODO
 
 - [x] Set up database and data model
-- [x ] Move folder open state to URL
-- [ ] Add auth
+- [x] Move folder open state to URL
+- [x] Add auth
 - [ ] Set file uploading
 - [] Add anlaytics
 
 # 2-8-2025
 
-- [x] Change folders to link components, remove all client state
-- [x] Clean up the database and data fetching patterns
 - [] Real homepage
+- [] Upload files to the right folder
+- [] Delete files button
+- [] Allows files that aren't images to be uploaded
