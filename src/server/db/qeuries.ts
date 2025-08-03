@@ -24,12 +24,12 @@ export const QUERIES = {
     },
     getFiles: function (folderId: number) {
         return db.select().from(filesSchema).where(eq(filesSchema.parent, folderId))
-        .orderBy(filesSchema.id)
+            .orderBy(filesSchema.id)
     },
 
     getFolders: function (folderId: number) {
         return db.select().from(foldersSchema).where(eq(foldersSchema.parent, folderId))
-        .orderBy(foldersSchema.id)
+            .orderBy(foldersSchema.id)
     },
     getFolderById: async function (folderId: number) {
         const folder = await db.select().from(foldersSchema).where(eq(foldersSchema.id, folderId))
@@ -52,5 +52,44 @@ export const MUTATIONS = {
         }, userId: string
     }) {
         return db.insert(filesSchema).values({ ...input.file, ownerId: input.userId })
+    },
+    createFolder: async function (input: {
+        folder: {
+            name: string,
+            ownerId: string,
+            parent: number | null,
+        }
+    }) {
+        return db.insert(foldersSchema).values(input.folder)
+    },
+    onboardUser: async function (userId: string) {
+        const rootFolder = await db.insert(foldersSchema).values({
+            name: "Root",
+            ownerId: userId,
+            parent: null,
+        }).$returningId()
+
+        const rootFolderId = rootFolder[0]?.id
+
+        await db.insert(foldersSchema).values([{
+            name: "Trash",
+            ownerId: userId,
+            parent: rootFolderId,
+        }, {
+            name: "Shared",
+            ownerId: userId,
+            parent: rootFolderId,
+        }, {
+            name: "Starred",
+            ownerId: userId,
+            parent: rootFolderId,
+        },
+        {
+            name: "Documents",
+            ownerId: userId,
+            parent: rootFolderId,
+        }])
+
+        return rootFolderId
     }
 }
