@@ -22,6 +22,20 @@
       "when": 1754110357859,
       "tag": "0002_medical_sage",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "1",
+      "when": 1754198369375,
+      "tag": "0003_sparkling_siren",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "1",
+      "when": 1754198600223,
+      "tag": "0004_graceful_baron_strucker",
+      "breakpoints": true
     }
   ]
 }

@@ -8,9 +8,10 @@
 - [x] Add file uploading
 - [] Add anlaytics
 
-# 2-8-2025
+# 3-8-2025
 
-- [] Real homepage
-- [] Upload files to the right folder
+- [x] Add "ownership" to files and folders
+- [x] Upload files to the right folder
 - [] Delete files button
 - [] Allows files that aren't images to be uploaded
+- [] Real homepage
