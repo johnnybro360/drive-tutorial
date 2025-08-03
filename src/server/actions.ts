@@ -46,10 +46,10 @@ export async function deleteFolder(folderId: number) {
 
     const files = await db.select().from(files_table).where(eq(files_table.parent, folderId))
 
-    for (const file of files) {
-        await utApi.deleteFiles([file.fileKey])
-        await db.delete(files_table).where(eq(files_table.id, file.id))
+    if (files.length > 0) {
+        return { error: "Folder is not empty" }
     }
+
     
     const [folder] = await db.select().from(folders_table).where(and(eq(folders_table.id, folderId), eq(folders_table.ownerId, session.userId)))
 

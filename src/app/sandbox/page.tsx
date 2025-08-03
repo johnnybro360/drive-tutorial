@@ -32,6 +32,7 @@ export default function SandBoxPage(){
                     parent: file.parent === "root" ? 1 : parseInt(file.parent) + 1,
                     id: parseInt(file.id),
                     url: file.url,
+                    fileKey: file.id,
                     size: parseInt(file.size),
                     ownerId: user.userId
                 })))

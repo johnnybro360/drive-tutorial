@@ -2,7 +2,7 @@ import "server-only"
 
 import { db } from "~/server/db"
 import { files_table as filesSchema, folders_table as foldersSchema } from "~/server/db/schema"
-import { eq } from "drizzle-orm"
+import { eq, and, isNull } from "drizzle-orm"
 
 export const QUERIES = {
     getAllParentsForFolder: async function (folderId: number) {
@@ -33,6 +33,10 @@ export const QUERIES = {
     },
     getFolderById: async function (folderId: number) {
         const folder = await db.select().from(foldersSchema).where(eq(foldersSchema.id, folderId))
+        return folder[0]
+    },
+    getRootFolderForUser: async function (userId: string) {
+        const folder = await db.select().from(foldersSchema).where(and(isNull(foldersSchema.parent), eq(foldersSchema.ownerId, userId)))
         return folder[0]
     }
 }
