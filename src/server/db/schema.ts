@@ -25,7 +25,6 @@ export const files_table = createTable("files", {
   index("owner_index").on(table.ownerId),
 ]);
 
-export type DB_FILES = typeof files_table.$inferSelect
 
 
 export const folders_table = createTable("folders", {
@@ -41,4 +40,3 @@ export const folders_table = createTable("folders", {
   index("owner_index").on(table.ownerId),
 ]);
 
-export type DB_FOLDERS = typeof folders_table.$inferSelect

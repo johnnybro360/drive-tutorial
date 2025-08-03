@@ -18,7 +18,7 @@ export default function SandBoxPage(){
                 }
 
 
-                const folderInsert = await db.insert(folders_table).values(MockFolders.map((folder, index)=>({
+                const folderInsert = await db.insert(folders_table).values(MockFolders.map((folder)=>({
                     name: folder.name,
                     parent: folder.parent === "root" ? 1 : folder.id === 'root' ? null : parseInt(folder.parent ?? "1"),
                     id: folder.id === 'root' ? 1 : parseInt(folder.id) + 1,
@@ -27,7 +27,7 @@ export default function SandBoxPage(){
 
                 console.log(folderInsert);
 
-                const fileInsert = await db.insert(files_table).values(mockFiles.map((file, index)=>({
+                const fileInsert = await db.insert(files_table).values(mockFiles.map((file)=>({
                     name: file.name,
                     parent: file.parent === "root" ? 1 : parseInt(file.parent) + 1,
                     id: parseInt(file.id),

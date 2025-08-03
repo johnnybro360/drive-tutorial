@@ -1,8 +1,7 @@
 "use client"
 
-import { Upload, ChevronRight } from "lucide-react"
+import { ChevronRight } from "lucide-react"
 import Link from "next/link"
-import { Button } from "~/components/ui/button"
 import { FileRow, FolderRow } from "./file-row"
 import type { files_table, folders_table } from "~/server/db/schema"
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs"
